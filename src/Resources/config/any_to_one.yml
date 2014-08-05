@@ -1,0 +1,10 @@
+parameters:
+  boekkooi.doctrinejack.any_to_one.listener.class: Boekkooi\Bundle\DoctrineJackBundle\Extension\AnyToOne\AnyToOneListener
+
+services:
+  boekkooi.doctrinejack.any_to_one.listener:
+    class: %boekkooi.doctrinejack.any_to_one.listener.class%
+    calls:
+      - [ setAnnotationReader, [ @annotation_reader ]]
+    tags:
+      - { name: doctrine.event_subscriber }
