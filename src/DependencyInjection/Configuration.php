@@ -1,10 +1,8 @@
 <?php
 namespace Boekkooi\Bundle\DoctrineJackBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
-
 
 /**
  * @author Warnar Boekkooi <warnar@boekkooi.net>
@@ -58,4 +56,4 @@ class Configuration implements ConfigurationInterface
 
         return $node;
     }
-} 
+}

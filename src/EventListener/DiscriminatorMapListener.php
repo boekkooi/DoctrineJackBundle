@@ -45,7 +45,6 @@ class DiscriminatorMapListener implements EventSubscriber
             return;
         }
 
-        // TODO add a test to make sure later doctrine versions don't change the set as adder behaviour
         $metadata->setDiscriminatorMap($this->entityMaps[$metadata->getName()]);
     }
 

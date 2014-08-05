@@ -3,6 +3,7 @@ namespace Tests\Boekkooi\Bundle\DoctrineJackBundle\EventListener;
 
 use Boekkooi\Bundle\DoctrineJackBundle\EventListener\DiscriminatorMapListener;
 use Doctrine\Common\Persistence\Event\LoadClassMetadataEventArgs;
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
 /**
  * @author Warnar Boekkooi <warnar@boekkooi.net>
@@ -36,6 +37,30 @@ class DiscriminatorMapListenerTest extends \PHPUnit_Framework_TestCase
         $listener->loadClassMetadata(
             new LoadClassMetadataEventArgs($classMetadata, $objectManager)
         );
+    }
+
+    public function testLoadClassMetadataActual()
+    {
+        $objectManager = $this->getMock('Doctrine\Common\Persistence\ObjectManager');
+        $this->getMock('stdClass', array(), array(), 'TestEntity');
+        $this->getMock('stdClass', array(), array(), 'OrgEntity');
+
+        $map = array(
+            'stdClass' => array(
+                'test' => 'TestEntity'
+            )
+        );
+
+        $classMetadata = new ClassMetadataInfo('stdClass');
+        $classMetadata->setDiscriminatorMap(array('x' => 'OrgEntity'));
+        $this->assertEquals(array('x' => 'OrgEntity'), $classMetadata->discriminatorMap);
+
+        $listener = new DiscriminatorMapListener($map);
+        $listener->loadClassMetadata(
+            new LoadClassMetadataEventArgs($classMetadata, $objectManager)
+        );
+
+        $this->assertEquals(array('test' => 'TestEntity', 'x' => 'OrgEntity'), $classMetadata->discriminatorMap);
     }
 
     public function testCleanMaps()
