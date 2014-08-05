@@ -98,7 +98,9 @@ class DiscriminatorMapListenerTest extends \PHPUnit_Framework_TestCase
                 $this->getMock('Doctrine\\ORM\\Mapping\\ClassMetadataInfo', null, array('NoTestEntity'))
             ),
             array(
-                array(),
+                array(
+                    'AEntity' => array()
+                ),
                 $this->getMock('Doctrine\\Common\\Persistence\\Mapping\\ClassMetadata')
             ),
             array(
@@ -108,5 +110,11 @@ class DiscriminatorMapListenerTest extends \PHPUnit_Framework_TestCase
                 $this->getMock('Doctrine\\ORM\\Mapping\\ClassMetadataInfo', null, array('TestEntity'))
             )
         );
+    }
+
+    public function testSubscribedEvent()
+    {
+        $listener = new DiscriminatorMapListener(array());
+        $this->assertEquals(array('loadClassMetadata'), $listener->getSubscribedEvents());
     }
 }
