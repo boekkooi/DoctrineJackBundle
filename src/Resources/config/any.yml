@@ -1,0 +1,2 @@
+parameters:
+  doctrine.orm.metadata.annotation.class: Boekkooi\Bundle\DoctrineJackBundle\Mapping\Driver\AnnotationDriver

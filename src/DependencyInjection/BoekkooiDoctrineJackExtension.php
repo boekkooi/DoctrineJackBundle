@@ -24,6 +24,8 @@ class BoekkooiDoctrineJackExtension extends Extension
 
         $this->loadFunctions($container, $config);
         $this->loadDiscriminatorMap($container, $loader, $config);
+
+        $loader->load('any.yml');
     }
 
     private function loadDiscriminatorMap(ContainerBuilder $container, LoaderInterface $loader, array $config)
@@ -39,4 +41,4 @@ class BoekkooiDoctrineJackExtension extends Extension
     {
         $container->setParameter('boekkooi.doctrine_jack.functions', array_filter($config['functions']));
     }
-} 
+}
