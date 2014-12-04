@@ -36,6 +36,7 @@ class DiscriminatorMapListener implements EventSubscriber
             return;
         }
 
+        /** @var \Doctrine\ORM\Mapping\ClassMetadata $metadata */
         $metadata = $event->getClassMetadata();
         if (!method_exists($metadata, 'setDiscriminatorMap')) {
             return;
@@ -45,6 +46,9 @@ class DiscriminatorMapListener implements EventSubscriber
             return;
         }
 
+        if ($metadata->isMappedSuperclass) {
+            $metadata->isMappedSuperclass = false;
+        }
         $metadata->setDiscriminatorMap($this->entityMaps[$metadata->getName()]);
     }
 
