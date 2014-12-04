@@ -46,9 +46,6 @@ class DiscriminatorMapListener implements EventSubscriber
             return;
         }
 
-        if ($metadata->isMappedSuperclass) {
-            $metadata->isMappedSuperclass = false;
-        }
         $metadata->setDiscriminatorMap($this->entityMaps[$metadata->getName()]);
     }
 
