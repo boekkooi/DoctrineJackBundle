@@ -1,6 +1,8 @@
 <?php
 namespace Boekkooi\Bundle\DoctrineJackBundle;
 
+use Boekkooi\Bundle\DoctrineJackBundle\DependencyInjection\Compiler\DoctrineFunctionPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
