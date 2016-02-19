@@ -14,4 +14,4 @@ class BoekkooiDoctrineJackBundle extends Bundle
     {
         $container->addCompilerPass(new DoctrineFunctionPass());
     }
-} 
+}

@@ -4,7 +4,6 @@ namespace Tests\Boekkooi\Bundle\DoctrineJackBundle\DependencyInjection\Compiler;
 use Boekkooi\Bundle\DoctrineJackBundle\DependencyInjection\Compiler\DoctrineFunctionPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-
 /**
  * @author Warnar Boekkooi <warnar@boekkooi.net>
  */
@@ -74,4 +73,4 @@ class DoctrineFunctionPassTest extends \PHPUnit_Framework_TestCase
         $container->setParameter('boekkooi.doctrine_jack.functions', array('random' => true));
         $this->compiler->process($container);
     }
-} 
+}

@@ -39,4 +39,4 @@ class BoekkooiDoctrineJackExtension extends Extension
     {
         $container->setParameter('boekkooi.doctrine_jack.functions', array_filter($config['functions']));
     }
-} 
+}

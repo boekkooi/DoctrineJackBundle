@@ -50,4 +50,4 @@ class RandFunction extends FunctionNode
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }
-} 
+}
