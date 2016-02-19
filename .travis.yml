@@ -9,6 +9,8 @@ php:
 sudo: false
 
 matrix:
+  fast_finish: true
+  include:
   - php: 5.5
     env: |
       COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
