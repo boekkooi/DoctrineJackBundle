@@ -4,7 +4,7 @@
     "keywords": [ "symfony", "doctrine", "extension", "inheritance mapping", "entity" ],
     "description": "Handy additional features for Doctrine 2 ORM",
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.5",
         "doctrine/orm": "~2.4",
         "symfony/framework-bundle": "~2.3|~3.0"
     },
