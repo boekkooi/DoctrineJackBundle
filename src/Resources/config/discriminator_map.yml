@@ -1,11 +1,8 @@
-parameters:
-  boekkooi.doctrine_jack.discriminator_map.listener.class: Boekkooi\Bundle\DoctrineJackBundle\EventListener\DiscriminatorMapListener
-
 services:
   boekkooi.doctrine_jack.discriminator_map.listener:
-    class: %boekkooi.doctrine_jack.discriminator_map.listener.class%
+    class: Boekkooi\Bundle\DoctrineJackBundle\EventListener\DiscriminatorMapListener
     arguments:
-      - %boekkooi.doctrine_jack.discriminator_map.mapping%
-      - @annotation_reader
+      - '%boekkooi.doctrine_jack.discriminator_map.mapping%'
+      - '@annotation_reader'
     tags:
       - { name: doctrine.event_subscriber }
